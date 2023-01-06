@@ -1,13 +1,23 @@
 import './App.css';
-import Slider from './Slider';
-import Hed from './hed';
-import slideImg1 from './1.JPG';
-import Ftr from './ftr';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./home";
+import Register from "./register";
+import Login from "./login";
+/* ↓「NotFound」をimport */
+import NotMatch from "./notmatch";
 
-function App() {
+const App = () => {
   return (
-<h1>a</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path={`/`} element={<Home />} />
+        <Route path={`/register/`} element={<Register />} />
+        <Route path={`/login/`} element={<Login />} />
+        {/* ↓これを追加 */}
+        <Route path={`/*/`} element={<NotMatch />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
